@@ -1,4 +1,4 @@
-package com.edgehoop.java8
+package com.edgehoop
 
 enum class Continent {
     AFRICA,
