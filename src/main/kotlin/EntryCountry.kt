@@ -19,7 +19,7 @@ import java.util.*
         println(countries)
         println(countries.size)
 
-        val populationFilter = countries.filter { it -> it.population > 40000000 }
+        val populationFilter = countries.filter { it -> it.population > 40000000 }.map { it.name }
 
         println(populationFilter)
         println(populationFilter.size)
