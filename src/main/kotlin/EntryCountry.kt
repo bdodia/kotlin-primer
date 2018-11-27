@@ -17,6 +17,7 @@ import java.util.*
         )
 
         println(countries)
+        println(countries.size)
 
     }
 
