@@ -19,10 +19,17 @@ import java.util.*
         println(countries)
         println(countries.size)
 
-        val populationFilter = countries.filter { it -> it.population > 40000000 }.map { it.name }
+        //Country with Max population (maxBy)
+        val countryWithHighestPopulation = countries.maxBy { it.population }
+        println("Country with highest population is ${countryWithHighestPopulation?.name}")
 
-        println(populationFilter)
+        //filter -> map -> take
+        val populationFilter = countries.filter { it -> it.population > 40000000 }.map { it.name }.take(3)
+
+        println("3 countries with populations exceeding 40000000 $populationFilter")
         println(populationFilter.size)
+
+        //
 
 
 
