@@ -30,18 +30,13 @@ import java.util.*
 
         //
         val countriesByContinent = countries.groupBy { it.continent }.mapValues { it.value.map { it.name } }
-        println("Count by continent $countriesByContinent");
+        println("Count by continent $countriesByContinent")
 
         //filter -> map -> take
         val populationFilter = countries.filter { it -> it.population > 40000000 }.map { it.name }.take(3)
 
         println("3 countries with populations exceeding 40000000 $populationFilter")
         println(populationFilter.size)
-
-        //
-
-
-
     }
 
 
