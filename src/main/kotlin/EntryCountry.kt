@@ -23,6 +23,11 @@ import java.util.*
         val countryWithHighestPopulation = countries.maxBy { it.population }
         println("Country with highest population is ${countryWithHighestPopulation?.name}")
 
+        //filter -> map
+        val countriesInEurope = countries.filter {it -> it.continent === Continent.EUROPE }.map { it.name }
+
+        println("Countries in Europe are $countriesInEurope")
+
         //filter -> map -> take
         val populationFilter = countries.filter { it -> it.population > 40000000 }.map { it.name }.take(3)
 
