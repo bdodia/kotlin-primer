@@ -23,6 +23,14 @@ class CountryStatistics {
         return countriesInEurope
     }
 
+    fun populationFilter(): List<String> {
+        //filter -> map -> take
+        val populationFilter = countries.filter { it -> it.population > 40000000 }.map { it.name }.take(3)
+        println("3 countries with populations exceeding 40000000 $populationFilter")
+        println(populationFilter.size)
+        return populationFilter
+    }
+
     fun something() {
 
         //
@@ -33,11 +41,6 @@ class CountryStatistics {
         val countByContinent = countries.groupBy { it.continent }.mapValues { it.value.count() }
         println("Count by continent $countByContinent")
 
-        //filter -> map -> take
-        val populationFilter = countries.filter { it -> it.population > 40000000 }.map { it.name }.take(3)
-
-        println("3 countries with populations exceeding 40000000 $populationFilter")
-        println(populationFilter.size)
     }
 
 }

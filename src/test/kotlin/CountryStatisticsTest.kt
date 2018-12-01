@@ -2,6 +2,7 @@ import com.edgehoop.Continent
 import com.edgehoop.Country
 import com.edgehoop.CountryStatistics
 import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.CoreMatchers.not
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.containsInAnyOrder
 import org.hamcrest.Matchers.equalToIgnoringCase
@@ -47,14 +48,19 @@ internal class CountryStatisticsTest {
     }
 
     @Test
+    fun getPopulationFilter() {
+        val results = countryStatistics.populationFilter()
+        assertThat(results.size, `is`(3))
+        assertThat(results, not(containsInAnyOrder("Australia","Austria")))
+    }
+
+    @Test
     fun getCountriesByContinent() {
+
     }
 
     @Test
     fun getCountByContinent() {
     }
 
-    @Test
-    fun getPopulationFilter() {
-    }
 }
