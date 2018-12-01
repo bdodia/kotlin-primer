@@ -6,7 +6,7 @@ import java.util.*
     fun main(args: Array<String>) {
 
         //Setup sample country data
-        val countries = Arrays.asList(
+        val countries = mutableListOf(
                 Country("AUT", "Austria", Continent.EUROPE, 8600000.0),
                 Country("DEU", "Germany", Continent.EUROPE, 81700000.0),
                 Country("BRA", "Brazil", Continent.SOUTH_AMERICA, 207000000.0),
@@ -24,7 +24,7 @@ import java.util.*
         println("Country with highest population is ${countryWithHighestPopulation?.name}")
 
         //filter -> map
-        val countriesInEurope = countries.filter {it -> it.continent === Continent.EUROPE }.map { it.name }
+        val countriesInEurope = countries.filter { it -> it.continent === Continent.EUROPE }.map { it.name }
 
         println("Countries in Europe are $countriesInEurope")
 
@@ -42,5 +42,6 @@ import java.util.*
         println("3 countries with populations exceeding 40000000 $populationFilter")
         println(populationFilter.size)
     }
+
 
 
