@@ -16,11 +16,14 @@ class CountryStatistics {
         return countryWithHighestPopulation?.name
     }
 
-    fun something() {
+    fun countriesInEurope(): List<String> {
         //filter -> map
         val countriesInEurope = countries.filter { it -> it.continent === Continent.EUROPE }.map { it.name }
-
         println("Countries in Europe are $countriesInEurope")
+        return countriesInEurope
+    }
+
+    fun something() {
 
         //
         val countriesByContinent = countries.groupBy { it.continent }.mapValues { it.value.map { it.name } }
@@ -36,4 +39,5 @@ class CountryStatistics {
         println("3 countries with populations exceeding 40000000 $populationFilter")
         println(populationFilter.size)
     }
+
 }

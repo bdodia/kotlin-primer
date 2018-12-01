@@ -1,10 +1,13 @@
 import com.edgehoop.Continent
 import com.edgehoop.Country
 import com.edgehoop.CountryStatistics
+import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.Matchers.containsInAnyOrder
 import org.hamcrest.Matchers.equalToIgnoringCase
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import java.util.Locale.UK
 
 internal class CountryStatisticsTest {
 
@@ -38,6 +41,9 @@ internal class CountryStatisticsTest {
 
     @Test
     fun getCountriesInEurope() {
+        val results = countryStatistics.countriesInEurope()
+        assertThat(results.size, `is`(3))
+        assertThat(results, containsInAnyOrder("Austria","Germany","United Kingdom"))
     }
 
     @Test
