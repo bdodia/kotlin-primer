@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test
 
 internal class CountryStatisticsTest {
 
-
     private val austria = Country("AUT", "Austria", Continent.EUROPE, 8600000.0)
     private val germany = Country("DEU", "Germany", Continent.EUROPE, 81700000.0)
     private val brazil = Country("BRA", "Brazil", Continent.SOUTH_AMERICA, 207000000.0)
@@ -36,7 +35,7 @@ internal class CountryStatisticsTest {
     @Test
     fun getCountryWithHighestPopulation() {
         val result = countryStatistics.countryWithHighestPopulation()
-        assertThat(result,equalToIgnoringCase("brazil"))
+        assertThat(result, equalToIgnoringCase("brazil"))
     }
 
     @Test
@@ -54,12 +53,16 @@ internal class CountryStatisticsTest {
     }
 
     @Test
-    fun getCountriesByContinent() {
-
+    fun getCountByContinent() {
+        val results = countryStatistics.countByContinent()
+        assertThat(results.get(key = Continent.EUROPE), `is`(3))
+        assertThat(results.get(key = Continent.AFRICA), `is`(2))
     }
 
     @Test
-    fun getCountByContinent() {
+    fun getCountriesByContinent() {
+        val results = countryStatistics.countriesByContinent()
+        assertThat(results.get(key = Continent.AFRICA), containsInAnyOrder("Kenya", "Mauritius"))
+        assertThat(results.get(key = Continent.EUROPE), containsInAnyOrder("Austria", "Germany", "United Kingdom"))
     }
-
 }

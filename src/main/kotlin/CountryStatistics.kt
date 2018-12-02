@@ -31,16 +31,18 @@ class CountryStatistics {
         return populationFilter
     }
 
-    fun something() {
-
-        //
-        val countriesByContinent = countries.groupBy { it.continent }.mapValues { it.value.map { it.name } }
-        println("Countries by continent $countriesByContinent")
-
-        //
+    fun countByContinent(): Map<Continent, Int> {
+        //groupBy -> mapValues -> count
         val countByContinent = countries.groupBy { it.continent }.mapValues { it.value.count() }
         println("Count by continent $countByContinent")
+        return countByContinent
+    }
 
+    fun countriesByContinent(): Map<Continent, List<String>> {
+        //groupBy -> mapValues -> map
+        val countriesByContinent = countries.groupBy { it.continent }.mapValues { it.value.map { it.name } }
+        println("Countries by continent $countriesByContinent")
+        return countriesByContinent
     }
 
 }
